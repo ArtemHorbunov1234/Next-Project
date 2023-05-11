@@ -1,0 +1,87 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+        Droid Sans, Helvetica Neue, sans-serif;
+    background-color: #383838;
+    color: azure;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: azure;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.registration {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-right: 10rem;
+    margin-top: 2rem;
+}
+
+.header {
+    display: flex;
+    margin-inline: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.header--svg {
+    display: flex;
+    margin-right: 30px;
+}
+
+.header__btn {
+    cursor: pointer;
+}
+
+.navigation {
+    display: flex;
+    gap: 115px;
+    margin-inline: auto;
+    list-style: none;
+    padding: 0.2rem 1rem 0.2rem 2rem;
+    background-color: #787878;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.navigation-text {
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 5rem;
+    width: fit-content;
+    margin-inline: auto;
+    background: rgba(0, 0, 0, 0.59375);
+    border-radius: 5px;
+}
+
+p {
+    height: 4px;
+}
+
+.navigation-item {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 8rem;
+    margin-left: 2rem;
+    position: absolute;
+    width: fit-content;
+}
+
+.navigation-item--text {
+    font-size: 1.1;
+}
