@@ -65,32 +65,38 @@ function Home() {
                 <link href='https://fonts.googleapis.com/css2?family=Lato&display=swap' rel='stylesheet' />
             </Head>
 
-            <div className='registration'>
-                <a href='#'>Вход</a>
-
-                <a href='#'>Реєстрація</a>
-            </div>
-            <div className='header'>
-                <div className='header--svg'>
+            <div className='container'>
+                <div className='container--svg'>
                     <img src='mdi_sun-moon-stars.svg' alt='sun-moon' />
                     <img className='header__btn' src='uit_toggle-off.svg' alt='button' />
                 </div>
+                <div className='container--logo'>
+                    <img src='800px-Upsilon_uc_lc 1.svg' alt='upsilon' />
+                    <h1>UPSILON</h1>
+                </div>
+                <div className='registration'>
+                    <a href='#'>Вхід</a>
 
+                    <a href='#'>Реєстрація</a>
+                </div>
+            </div>
+
+            <div className='header'>
                 <div>
                     <ul className='navigation'>
                         <li>
                             <a href='#' className='navigation-text'>
-                                Фільми
+                                Фільми <img src='uit_angle-up.svg' alt='list' />
                             </a>
                         </li>
                         <li>
                             <a href='#' className='navigation-text'>
-                                Серіали
+                                Серіали <img src='uit_angle-up.svg' alt='list' />
                             </a>
                         </li>
                         <li>
                             <a href='#' className='navigation-text'>
-                                Мультфільми
+                                Мультфільми <img src='uit_angle-up.svg' alt='list' />
                             </a>
                         </li>
                         <li>
@@ -99,17 +105,7 @@ function Home() {
                     </ul>
                 </div>
             </div>
-            <div className='navigation-item'>
-                <a href='#' className='navigation-item--text'>
-                    Фільми жанр <img src='uit_angle-up.svg' alt='list' />
-                </a>
-                <a href='#' className='navigation-item--text'>
-                    Серіали жанр <img src='uit_angle-up.svg' alt='list' />
-                </a>
-                <a href='#' className='navigation-item--text'>
-                    Мультфільми жанр <img src='uit_angle-up.svg' alt='list' />
-                </a>
-            </div>
+
             <div>
                 <div className='main'>
                     {films.map(film => (

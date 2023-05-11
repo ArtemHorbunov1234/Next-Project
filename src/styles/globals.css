@@ -12,18 +12,34 @@ a {
     text-decoration: none;
     font-size: 1.1rem;
     color: azure;
+    width: fit-content;
 }
 
 * {
     box-sizing: border-box;
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    gap: 331px;
+    justify-content: center;
+}
+
+.container--svg {
+    display: flex;
+    margin-right: 30px;
+}
+
+.container--logo {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
 .registration {
     display: flex;
-    gap: 1rem;
-    justify-content: flex-end;
-    margin-right: 10rem;
-    margin-top: 2rem;
+    flex-direction: column;
 }
 
 .header {
@@ -31,11 +47,6 @@ a {
     margin-inline: auto;
     justify-content: center;
     align-items: center;
-}
-
-.header--svg {
-    display: flex;
-    margin-right: 30px;
 }
 
 .header__btn {
@@ -47,21 +58,23 @@ a {
     gap: 115px;
     margin-inline: auto;
     list-style: none;
-    padding: 0.2rem 1rem 0.2rem 2rem;
+    padding: 0.2rem 1rem 0.2rem 4.8rem;
     background-color: #787878;
     border-radius: 10px;
     align-items: center;
 }
 
 .navigation-text {
+    display: flex;
     font-size: 1.4rem;
     letter-spacing: 0.2rem;
+    font-weight: 700;
 }
 
 .main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-top: 5rem;
+    margin-top: 2rem;
     width: fit-content;
     margin-inline: auto;
     background: rgba(0, 0, 0, 0.59375);
