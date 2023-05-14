@@ -13,6 +13,7 @@ a {
     font-size: 1.1rem;
     color: azure;
     width: fit-content;
+    cursor: pointer;
 }
 
 * {
@@ -71,6 +72,11 @@ a {
     font-weight: 700;
 }
 
+.navigation-img {
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+
 .main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -85,16 +91,34 @@ p {
     height: 4px;
 }
 
-.navigation-item {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-top: 8rem;
-    margin-left: 2rem;
+.dropdown-content {
+    display: none;
     position: absolute;
-    width: fit-content;
+    background-color: #f1f1f1;
+    min-width: 150px;
+    border-radius: 5px;
+    border: #383838 solid 2px;
 }
 
-.navigation-item--text {
-    font-size: 1.1;
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    width: 150px;
+}
+
+.dropdown-content a:hover {
+    background-color: #a0a0a0;
+}
+.show {
+    display: block;
+}
+
+.navigation-flex {
+    display: flex;
+}
+
+.navigation--block {
+    width: max-content;
 }

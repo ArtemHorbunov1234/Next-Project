@@ -6,55 +6,97 @@ import { Card } from '~/components/Card';
 import Image from 'next/image';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { QueryClient } from '@tanstack/react-query';
+import { useEffect, useRef } from 'react';
 
-const films = [
-    {
-        id: 1,
-        name: 'Человек-муравей и Оса: Квантомания',
-        img: 'https://static.hdrezka.ac/i/2023/1/18/y6e04528a82c2pr44o93o.jpg',
-        genre: 'Боевик',
-        releaseDate: 2023,
-        country: 'Франція',
-        rating: 7,
-    },
-    {
-        id: 2,
-        name: 'Человек-муравей и Оса: Квантомания',
-        img: 'https://static.hdrezka.ac/i/2023/1/18/y6e04528a82c2pr44o93o.jpg',
-        genre: 'Боевик',
-        releaseDate: 2023,
-        country: 'Франція',
-        rating: 7,
-    },
-    {
-        id: 3,
-        name: 'Человек-муравей и Оса: Квантомания',
-        img: 'https://static.hdrezka.ac/i/2023/1/18/y6e04528a82c2pr44o93o.jpg',
-        genre: 'Боевик',
-        releaseDate: 2023,
-        country: 'Франція',
-        rating: 7,
-    },
-    {
-        id: 4,
-        name: 'Человек-муравей и Оса: Квантомания',
-        img: 'https://static.hdrezka.ac/i/2023/1/18/y6e04528a82c2pr44o93o.jpg',
-        genre: 'Боевик',
-        releaseDate: 2023,
-        country: 'Франція',
-        rating: 7,
-    },
-    {
-        id: 5,
-        name: 'Человек-муравей и Оса: Квантомания',
-        img: 'https://static.hdrezka.ac/i/2023/1/18/y6e04528a82c2pr44o93o.jpg',
-        genre: 'Боевик',
-        releaseDate: 2023,
-        country: 'Франція',
-        rating: 7,
-    },
-];
+function Dropdown() {
+    const [isOpen, setIsOpen] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
 
+    const toggleDropdown = (): void => {
+        setIsOpen(!isOpen);
+    };
+
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent): void {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setIsOpen(false);
+            }
+        }
+    }, [dropdownRef]);
+
+    return (
+        <div className='header'>
+            <div>
+                <ul className='navigation'>
+                    <li>
+                        <div ref={dropdownRef}>
+                            <div className='navigation-flex'>
+                                <a className='navigation-text'>Фільми</a>
+                                <img
+                                    onClick={toggleDropdown}
+                                    className='navigation-img '
+                                    src='uit_angle-up.svg'
+                                    alt='list'
+                                />
+                            </div>
+
+                            <div className={isOpen ? 'dropdown-content show' : 'dropdown-content'}>
+                                <a href='#home' className='navigation--block'>
+                                    Фентезійні
+                                </a>
+                                <a href='#about'>Детективи</a>
+                                <a href='#contact'>Екшн (бойовики)</a>
+                                <a href='#home'>Кримінальні</a>
+                                <a href='#about'>Комедії</a>
+                                <a href='#contact'>Трилери</a>
+                                <a href='#home'>Фантастичні</a>
+                                <a href='#about'>Сімейні</a>
+                                <a href='#contact'>Жахіття</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div ref={dropdownRef}>
+                            <div className='navigation-flex'>
+                                <a href='#' className='navigation-text'>
+                                    Серіали
+                                    <img
+                                        onClick={toggleDropdown}
+                                        className='navigation-img'
+                                        src='uit_angle-up.svg'
+                                        alt='list'
+                                    />
+                                </a>
+                            </div>
+
+                            <div className={isOpen ? 'dropdown-content show' : 'dropdown-content'}>
+                                <a href='#home' className='navigation--block'>
+                                    Фентезійні
+                                </a>
+                                <a href='#about'>Детективи</a>
+                                <a href='#contact'>Екшн (бойовики)</a>
+                                <a href='#home'>Кримінальні</a>
+                                <a href='#about'>Комедії</a>
+                                <a href='#contact'>Трилери</a>
+                                <a href='#home'>Фантастичні</a>
+                                <a href='#about'>Сімейні</a>
+                                <a href='#contact'>Жахіття</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href='#' className='navigation-text'>
+                            Мультфільми <img className='navigation-img' src='uit_angle-up.svg' alt='list' />
+                        </a>
+                    </li>
+                    <li>
+                        <input type='text' placeholder='Пошук' />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    );
+}
 function Home() {
     const queryClient = new QueryClient();
 
@@ -164,32 +206,7 @@ function Home() {
                     <a href='#'>Реєстрація</a>
                 </div>
             </div>
-
-            <div className='header'>
-                <div>
-                    <ul className='navigation'>
-                        <li>
-                            <a href='#' className='navigation-text'>
-                                Фільми <img src='uit_angle-up.svg' alt='list' />
-                            </a>
-                        </li>
-                        <li>
-                            <a href='#' className='navigation-text'>
-                                Серіали <img src='uit_angle-up.svg' alt='list' />
-                            </a>
-                        </li>
-                        <li>
-                            <a href='#' className='navigation-text'>
-                                Мультфільми <img src='uit_angle-up.svg' alt='list' />
-                            </a>
-                        </li>
-                        <li>
-                            <input type='text' placeholder='Пошук' />
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
+            <Dropdown />
             <div>
                 <div className='main'>
                     {films.map(film => (
