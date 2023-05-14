@@ -1,6 +1,9 @@
 import styles from './card.module.css';
+import { useState } from 'react';
+import { QueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 
-type film = {
+type Film = {
     name: string;
     img: string;
     genre: string;
@@ -10,7 +13,7 @@ type film = {
 };
 
 type CardProps = {
-    film: film;
+    film: Film;
 };
 
 export function Card({ film }: CardProps) {

@@ -34,12 +34,18 @@ dependencies:
   next-auth:
     specifier: ^4.21.0
     version: 4.21.0(next@13.4.1)(react-dom@18.2.0)(react@18.2.0)
+  next.js:
+    specifier: ^1.0.3
+    version: 1.0.3
   react:
     specifier: 18.2.0
     version: 18.2.0
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
+  react-query:
+    specifier: link:/react-query
+    version: link:../../../react-query
   superjson:
     specifier: 1.12.2
     version: 1.12.2
@@ -1985,6 +1991,10 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       uuid: 8.3.2
+    dev: false
+
+  /next.js@1.0.3:
+    resolution: {integrity: sha512-nosnT7Jh4ML3kzwG9MPW+SfBKuHoZEMcCWw5kxwMYXoxnADGzIxWl+TdDMcEZP6Xl/t8m/5uyVlA9SBkH2oh/w==}
     dev: false
 
   /next@13.4.1(react-dom@18.2.0)(react@18.2.0):

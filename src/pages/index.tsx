@@ -4,6 +4,8 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { Card } from '~/components/Card';
 import Image from 'next/image';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { QueryClient } from '@tanstack/react-query';
 
 const films = [
     {
@@ -54,7 +56,89 @@ const films = [
 ];
 
 function Home() {
-    // const [isBig, setBig] = useState(false);
+    const queryClient = new QueryClient();
+
+    type Film = {
+        id: number;
+        name: string;
+        img: string;
+        genre: string;
+        releaseDate: number;
+        country: string;
+        rating: number;
+    };
+
+    const [films, setFilms] = useState<Film[]>([
+        {
+            id: 1,
+            name: 'Человек-муравей и Оса: Квантомания',
+            img: 'https://static.hdrezka.ac/i/2023/1/18/y6e04528a82c2pr44o93o.jpg',
+            genre: 'Боевик',
+            releaseDate: 2023,
+            country: 'Франція',
+            rating: 7,
+        },
+        {
+            id: 2,
+            name: 'Человек-муравей и Оса: Квантомания',
+            img: 'https://static.hdrezka.ac/i/2023/1/18/y6e04528a82c2pr44o93o.jpg',
+            genre: 'Боевик',
+            releaseDate: 2023,
+            country: 'Франція',
+            rating: 7,
+        },
+        {
+            id: 3,
+            name: 'Человек-муравей и Оса: Квантомания',
+            img: 'https://static.hdrezka.ac/i/2023/1/18/y6e04528a82c2pr44o93o.jpg',
+            genre: 'Боевик',
+            releaseDate: 2023,
+            country: 'Франція',
+            rating: 7,
+        },
+        {
+            id: 4,
+            name: 'Человек-муравей и Оса: Квантомания',
+            img: 'https://static.hdrezka.ac/i/2023/1/18/y6e04528a82c2pr44o93o.jpg',
+            genre: 'Боевик',
+            releaseDate: 2023,
+            country: 'Франція',
+            rating: 7,
+        },
+        {
+            id: 5,
+            name: 'Человек-муравей и Оса: Квантомания',
+            img: 'https://static.hdrezka.ac/i/2023/1/18/y6e04528a82c2pr44o93o.jpg',
+            genre: 'Боевик',
+            releaseDate: 2023,
+            country: 'Франція',
+            rating: 7,
+        },
+        // ... остальные фильмы
+    ]);
+
+    const deleteFilmMutation = useMutation(
+        (id: number) =>
+            new Promise<void>((resolve, reject) => {
+                // Создаем новый массив без элемента с заданным id
+                const updatedFilms = films.filter(film => film.id !== id);
+                // Устанавливаем новый массив
+                setFilms(updatedFilms);
+                // Разрешаем промис
+                resolve();
+            }),
+        {
+            onSuccess: () => {
+                // Обновляем кэш запроса, чтобы обновить UI
+                queryClient.invalidateQueries('getAllFilms');
+            },
+        }
+    );
+
+    const handleDeleteFilm = (id: number) => {
+        // Вызываем мутацию для удаления фильма
+        deleteFilmMutation.mutate(id);
+    };
 
     return (
         <div>
@@ -109,7 +193,10 @@ function Home() {
             <div>
                 <div className='main'>
                     {films.map(film => (
-                        <Card key={film.id} film={film} />
+                        <div key={film.id}>
+                            <Card film={film} />
+                            <button onClick={() => handleDeleteFilm(film.id)}>Удалить</button>
+                        </div>
                     ))}
                 </div>
             </div>
