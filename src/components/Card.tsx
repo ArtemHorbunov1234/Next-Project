@@ -1,7 +1,4 @@
 import styles from './card.module.css';
-import { useState } from 'react';
-import { QueryClient } from '@tanstack/react-query';
-import { useMutation, useQuery } from '@tanstack/react-query';
 
 type Film = {
     name: string;
