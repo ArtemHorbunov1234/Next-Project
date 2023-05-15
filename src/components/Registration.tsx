@@ -40,8 +40,8 @@ export function Registration() {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div className={styles.header} ref={dropdownRefLog}>
-                <div className='registration'>
+            <div ref={dropdownRefLog}>
+                <div className={styles.registration}>
                     <a href='#' onClick={toggleDropdownFilm}>
                         Вхід
                     </a>
@@ -49,16 +49,27 @@ export function Registration() {
                     <a href='#'>Реєстрація</a>
                 </div>
                 <div className={isOpenLog ? clsx(styles.dropdown_content, styles.show) : styles.dropdown_content}>
-                    <div>
+                    <div className={styles.header}>
+                        <img
+                            className={styles.input_out}
+                            onClick={() => setIsOpenLog(false)}
+                            src='pepicons-pop_times.svg'
+                            alt=''
+                        />
+                        <div className={styles.input_logo}>
+                            <img src='800px-Upsilon_uc_lc 1.svg' alt='logo' />
+                            <h1>Upsilon</h1>
+                        </div>
+
                         <div className={styles.input_registration}>
-                            <label>
+                            <label className={styles.input_label}>
                                 Email:
                                 <input
                                     {...register('email', { minLength: 6, required: true })}
                                     placeholder='Email...'
                                 />
                             </label>
-                            <label>
+                            <label className={styles.input_label}>
                                 Password:
                                 <input
                                     {...register('password', { minLength: 6, required: true })}
