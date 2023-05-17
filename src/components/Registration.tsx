@@ -1,7 +1,6 @@
 import styles from './registration.module.css';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useState, useEffect, useRef } from 'react';
-import clsx from 'clsx';
 
 type Inputs = {
     email: string;
@@ -48,38 +47,41 @@ export function Registration() {
 
                     <a href='#'>Реєстрація</a>
                 </div>
-                <div className={isOpenLog ? clsx(styles.dropdown_content, styles.show) : styles.dropdown_content}>
-                    <div className={styles.header}>
-                        <img
-                            className={styles.input_out}
-                            onClick={() => setIsOpenLog(false)}
-                            src='pepicons-pop_times.svg'
-                            alt=''
-                        />
-                        <div className={styles.input_logo}>
-                            <img src='800px-Upsilon_uc_lc 1.svg' alt='logo' />
-                            <h1>Upsilon</h1>
-                        </div>
-
-                        <div className={styles.input_registration}>
-                            <label className={styles.input_label}>
-                                Email:
-                                <input
-                                    {...register('email', { minLength: 6, required: true })}
-                                    placeholder='Email...'
+                {isOpenLog && (
+                    <div className={styles.dropdown_bg}>
+                        <div className={styles.dropdown_content}>
+                            <div className={styles.header}>
+                                <img
+                                    className={styles.input_out}
+                                    onClick={() => setIsOpenLog(false)}
+                                    src='pepicons-pop_times.svg'
+                                    alt=''
                                 />
-                            </label>
-                            <label className={styles.input_label}>
-                                Password:
-                                <input
-                                    {...register('password', { minLength: 6, required: true })}
-                                    placeholder='Password...'
-                                />
-                            </label>
-                            <button type='submit'> Push</button>
+                                <div className={styles.input_logo}>
+                                    <img src='800px-Upsilon_uc_lc 1.svg' alt='logo' />
+                                    <h1>Upsilon</h1>
+                                </div>
+                                <div className={styles.input_registration}>
+                                    <label className={styles.input_label}>
+                                        Email:
+                                        <input
+                                            {...register('email', { minLength: 6, required: true })}
+                                            placeholder='Email...'
+                                        />
+                                    </label>
+                                    <label className={styles.input_label}>
+                                        Password:
+                                        <input
+                                            {...register('password', { minLength: 6, required: true })}
+                                            placeholder='Password...'
+                                        />
+                                    </label>
+                                    <button type='submit'> Push</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                )}
             </div>
         </form>
     );

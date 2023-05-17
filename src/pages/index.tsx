@@ -5,90 +5,27 @@ import { Navigation } from '~/components/Navigation';
 import { useMutation } from '@tanstack/react-query';
 import { QueryClient } from '@tanstack/react-query';
 import { Registration } from '~/components/Registration';
+import { api } from '~/utils/api';
+
+// type Film = {
+//     id: number;
+//     name: string;
+//     img: string;
+//     genre: string;
+//     releaseDate: number;
+//     country: string;
+//     rating: number;
+// };
 
 function Home() {
-    const queryClient = new QueryClient();
-
-    type Film = {
-        id: number;
-        name: string;
-        img: string;
-        genre: string;
-        releaseDate: number;
-        country: string;
-        rating: number;
-    };
-
-    const [films, setFilms] = useState<Film[]>([
-        {
-            id: 1,
-            name: 'Человек-муравей и Оса: Квантомания',
-            img: 'https://static.hdrezka.ac/i/2023/1/18/y6e04528a82c2pr44o93o.jpg',
-            genre: 'Боевик',
-            releaseDate: 2023,
-            country: 'Франція',
-            rating: 7,
-        },
-        {
-            id: 2,
-            name: 'Человек-муравей и Оса: Квантомания',
-            img: 'https://static.hdrezka.ac/i/2023/1/18/y6e04528a82c2pr44o93o.jpg',
-            genre: 'Боевик',
-            releaseDate: 2023,
-            country: 'Франція',
-            rating: 7,
-        },
-        {
-            id: 3,
-            name: 'Человек-муравей и Оса: Квантомания',
-            img: 'https://static.hdrezka.ac/i/2023/1/18/y6e04528a82c2pr44o93o.jpg',
-            genre: 'Боевик',
-            releaseDate: 2023,
-            country: 'Франція',
-            rating: 7,
-        },
-        {
-            id: 4,
-            name: 'Человек-муравей и Оса: Квантомания',
-            img: 'https://static.hdrezka.ac/i/2023/1/18/y6e04528a82c2pr44o93o.jpg',
-            genre: 'Боевик',
-            releaseDate: 2023,
-            country: 'Франція',
-            rating: 7,
-        },
-        {
-            id: 5,
-            name: 'Человек-муравей и Оса: Квантомания',
-            img: 'https://static.hdrezka.ac/i/2023/1/18/y6e04528a82c2pr44o93o.jpg',
-            genre: 'Боевик',
-            releaseDate: 2023,
-            country: 'Франція',
-            rating: 7,
-        },
-        // ... остальные фильмы
-    ]);
-
-    const deleteFilmMutation = useMutation(
-        (id: number) =>
-            new Promise<void>((resolve, reject) => {
-                // Создаем новый массив без элемента с заданным id
-                const updatedFilms = films.filter(film => film.id !== id);
-                // Устанавливаем новый массив
-                setFilms(updatedFilms);
-                // Разрешаем промис
-                resolve();
-            }),
-        {
-            onSuccess: () => {
-                // Обновляем кэш запроса, чтобы обновить UI
-                queryClient.invalidateQueries('getAllFilms');
-            },
-        }
-    );
-
-    const handleDeleteFilm = (id: number) => {
-        // Вызываем мутацию для удаления фильма
-        deleteFilmMutation.mutate(id);
+    // const [films, setFilms] = useState<Film[]>(mockData);
+    const { data: films } = api.film.getAll.useQuery(undefined, { initialData: [] });
+    const apiContext = api.useContext();
+    const deleteFilm = api.film.delete.useMutation({ onSuccess: () => apiContext.film.invalidate() });
+    const [darkTheme, setDarkTheme] = useState(false);
+    const handleDeleteFilm = (id: string) => {
+        // setFilms(films.filter(film => film.id !== id));
+        deleteFilm.mutate({ id: id });
     };
 
     return (
@@ -103,6 +40,14 @@ function Home() {
                 <div className='container--svg'>
                     <img src='mdi_sun-moon-stars.svg' alt='sun-moon' />
                     <img className='container__btn' src='uit_toggle-off.svg' alt='button' />
+                    <button style={{ all: 'unset' }} onClick={() => setDarkTheme(!darkTheme)}>
+                        <img
+                            className='container__btn'
+                            src={darkTheme ? '/toggle-left.svg' : '/toggle-right.svg'}
+                            alt='button'
+                            width={'64px'}
+                        />
+                    </button>
                 </div>
                 <div className='container--logo'>
                     <img src='800px-Upsilon_uc_lc 1.svg' alt='upsilon' />
