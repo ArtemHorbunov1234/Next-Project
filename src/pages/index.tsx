@@ -6,6 +6,7 @@ import { useMutation } from '@tanstack/react-query';
 import { QueryClient } from '@tanstack/react-query';
 import { Registration } from '~/components/Registration';
 import { api } from '~/utils/api';
+import styles from './navigator.module.css';
 
 // type Film = {
 //     id: number;
@@ -22,7 +23,7 @@ function Home() {
     const { data: films } = api.film.getAll.useQuery(undefined, { initialData: [] });
     const apiContext = api.useContext();
     const deleteFilm = api.film.delete.useMutation({ onSuccess: () => apiContext.film.invalidate() });
-    const [darkTheme, setDarkTheme] = useState(false);
+    const [lightTheme, setLightTheme] = useState(false);
     const handleDeleteFilm = (id: string) => {
         // setFilms(films.filter(film => film.id !== id));
         deleteFilm.mutate({ id: id });
@@ -39,15 +40,10 @@ function Home() {
             <div className='container'>
                 <div className='container--svg'>
                     <img src='mdi_sun-moon-stars.svg' alt='sun-moon' />
-                    <img className='container__btn' src='uit_toggle-off.svg' alt='button' />
-                    <button style={{ all: 'unset' }} onClick={() => setDarkTheme(!darkTheme)}>
-                        <img
-                            className='container__btn'
-                            src={darkTheme ? '/toggle-left.svg' : '/toggle-right.svg'}
-                            alt='button'
-                            width={'64px'}
-                        />
-                    </button>
+                    <label>
+                        <input type='checkbox' onClick={() => setLightTheme(!lightTheme)} />
+                        <span className='check'></span>
+                    </label>
                 </div>
                 <div className='container--logo'>
                     <img src='800px-Upsilon_uc_lc 1.svg' alt='upsilon' />
@@ -57,7 +53,7 @@ function Home() {
             </div>
             <Navigation />
             <div>
-                <div className='main'>
+                <div className={lightTheme ? 'main--light' : 'main'}>
                     {films.map(film => (
                         <div key={film.id}>
                             <Card film={film} />

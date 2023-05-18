@@ -6,6 +6,7 @@ export function Navigation() {
     const [isOpenFilm, setIsOpenFilm] = useState(false);
     const [isOpenCurtain, setIsOpenCurtain] = useState(false);
     const [isOpenCartoon, setIsOpenCartoon] = useState(false);
+    const [lightTheme, setLightTheme] = useState(false);
     const dropdownRefFilm = useRef<HTMLDivElement>(null);
     const dropdownCurtain = useRef<HTMLDivElement>(null);
     const dropdownCartoon = useRef<HTMLDivElement>(null);
@@ -60,7 +61,7 @@ export function Navigation() {
                             <a className={styles.navigation_text}>Фільми</a>
                             <img
                                 onClick={toggleDropdownFilm}
-                                className={styles.navigation_img}
+                                className={isOpenFilm ? styles.navigation_img : styles.navigation_img__reverse}
                                 src='uit_angle-up.svg'
                                 alt='list'
                             />
@@ -89,7 +90,7 @@ export function Navigation() {
                                 Серіали
                                 <img
                                     onClick={toggleDropdownCurtain}
-                                    className={styles.navigation_img}
+                                    className={isOpenCurtain ? styles.navigation_img : styles.navigation_img__reverse}
                                     src='uit_angle-up.svg'
                                     alt='list'
                                 />
@@ -120,7 +121,7 @@ export function Navigation() {
                                 Мультфільми
                                 <img
                                     onClick={toggleDropdownCartoon}
-                                    className={styles.navigation_img}
+                                    className={isOpenCartoon ? styles.navigation_img : styles.navigation_img__reverse}
                                     src='uit_angle-up.svg'
                                     alt='list'
                                 />
