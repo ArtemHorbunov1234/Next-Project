@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from './navigator.module.css';
 import clsx from 'clsx';
+import { text } from 'stream/consumers';
 
 export function Navigation() {
     const [isOpenFilm, setIsOpenFilm] = useState(false);
@@ -147,8 +148,11 @@ export function Navigation() {
                         </div>
                     </div>
                 </li>
-                <li>
-                    <input type='text' placeholder='Пошук' />
+                <li className={styles.search_box}>
+                    <a className={styles.search_btn}>
+                        <img className={styles.search_svg} src='primary.svg' alt='' />
+                    </a>
+                    <input type='text' placeholder='Пошук...' className={styles.search_txt} />
                 </li>
             </ul>
         </div>

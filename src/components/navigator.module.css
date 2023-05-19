@@ -7,7 +7,7 @@
 
 .navigation {
     display: flex;
-    gap: 115px;
+    gap: 110px;
     margin-inline: auto;
     list-style: none;
     padding: 0.2rem 1rem 0.2rem 4.8rem;
@@ -61,4 +61,27 @@
 
 .navigation_transform {
     transform: translate(46px, 3px);
+}
+
+.search_box {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.search_txt {
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    transition: 0.5s;
+}
+
+.search_txt::placeholder {
+    color: #a0a0a0; /* Измените цвет на ваш выбор */
+}
+
+.search_svg {
+    width: 18px;
+    height: 20px;
 }
