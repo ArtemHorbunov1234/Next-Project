@@ -10,6 +10,9 @@ type Inputs = {
 export function Registration() {
     const [isOpenLog, setIsOpenLog] = useState(false);
     const [isOpenReg, setIsOpenReg] = useState(false);
+    const [isEmail, setEmail] = useState('');
+    const [isPassword, setPassword] = useState('');
+    const [isPasswordRetry, setPasswordRetry] = useState('');
     const toggleDropdownLog = (): void => {
         setIsOpenLog(!isOpenLog);
     };
@@ -61,6 +64,7 @@ export function Registration() {
                                                 pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                                             })}
                                             placeholder='Email...'
+                                            onChange={e => setEmail(e.target.value)}
                                         />
                                         {errors.email?.type === 'required' && <span>Fill in the email field</span>}
                                         {errors.email?.type === 'minLength' && (
@@ -73,6 +77,7 @@ export function Registration() {
                                         <input
                                             {...register('password', { minLength: 6, required: true })}
                                             placeholder='Password...'
+                                            onChange={e => setPassword(e.target.value)}
                                         />
                                         {errors.password?.type === 'required' && (
                                             <span>Fill in the password field</span>
