@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 type Inputs = {
     email: string;
     password: string;
+    passwordRetry: string;
 };
 
 export function Registration() {
@@ -27,6 +28,14 @@ export function Registration() {
         formState: { errors },
     } = useForm<Inputs>();
     const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
+
+    function handleForm() {
+        if (isEmail.length > 6 && isPassword === isPasswordRetry) {
+            console.log(`
+            Email = ${isEmail} 
+            Password = ${isPassword}`);
+        }
+    }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -64,7 +73,6 @@ export function Registration() {
                                                 pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                                             })}
                                             placeholder='Email...'
-                                            onChange={e => setEmail(e.target.value)}
                                         />
                                         {errors.email?.type === 'required' && <span>Fill in the email field</span>}
                                         {errors.email?.type === 'minLength' && (
@@ -77,7 +85,6 @@ export function Registration() {
                                         <input
                                             {...register('password', { minLength: 6, required: true })}
                                             placeholder='Password...'
-                                            onChange={e => setPassword(e.target.value)}
                                         />
                                         {errors.password?.type === 'required' && (
                                             <span>Fill in the password field</span>
@@ -116,6 +123,8 @@ export function Registration() {
                                                 pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                                             })}
                                             placeholder='Email...'
+                                            onChange={e => setEmail(e.target.value)}
+                                            value={isEmail}
                                         />
                                         {errors.email?.type === 'required' && <span>Fill in the email field</span>}
                                         {errors.email?.type === 'minLength' && (
@@ -128,17 +137,24 @@ export function Registration() {
                                         <input
                                             {...register('password', { minLength: 6, required: true })}
                                             placeholder='Password...'
+                                            onChange={e => setPassword(e.target.value)}
+                                            value={isPassword}
                                         />
                                     </label>
                                     <label className={styles.input_label}>
                                         Password retry:
                                         <input
-                                            {...register('password', { minLength: 6, required: true })}
+                                            {...register('passwordRetry', { minLength: 6, required: true })}
                                             placeholder='Password...'
+                                            onChange={e => setPasswordRetry(e.target.value)}
+                                            value={isPasswordRetry}
                                         />
                                     </label>
 
-                                    <button type='submit'> Push</button>
+                                    <button type='submit' onClick={() => handleForm()}>
+                                        {' '}
+                                        Push
+                                    </button>
                                 </div>
                             </div>
                         </div>
