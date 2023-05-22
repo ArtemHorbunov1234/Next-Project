@@ -7,7 +7,6 @@ export function Navigation() {
     const [isOpenFilm, setIsOpenFilm] = useState(false);
     const [isOpenCurtain, setIsOpenCurtain] = useState(false);
     const [isOpenCartoon, setIsOpenCartoon] = useState(false);
-    const [lightTheme, setLightTheme] = useState(false);
     const dropdownRefFilm = useRef<HTMLDivElement>(null);
     const dropdownCurtain = useRef<HTMLDivElement>(null);
     const dropdownCartoon = useRef<HTMLDivElement>(null);

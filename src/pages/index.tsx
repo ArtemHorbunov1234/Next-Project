@@ -8,18 +8,7 @@ import { Registration } from '~/components/Registration';
 import { api } from '~/utils/api';
 import styles from './navigator.module.css';
 
-// type Film = {
-//     id: number;
-//     name: string;
-//     img: string;
-//     genre: string;
-//     releaseDate: number;
-//     country: string;
-//     rating: number;
-// };
-
 function Home() {
-    // const [films, setFilms] = useState<Film[]>(mockData);
     const { data: films } = api.film.getAll.useQuery(undefined, { initialData: [] });
     const apiContext = api.useContext();
     const deleteFilm = api.film.delete.useMutation({ onSuccess: () => apiContext.film.invalidate() });
@@ -51,7 +40,9 @@ function Home() {
                 </div>
                 <Registration />
             </div>
+
             <Navigation />
+
             <div>
                 <div className={lightTheme ? 'main--light' : 'main'}>
                     {films.map(film => (
