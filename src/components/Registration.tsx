@@ -54,12 +54,12 @@ export function Registration() {
                         <div className={styles.dropdown_content}>
                             <div className={styles.header}>
                                 <img
-                                    className={styles.input_out}
+                                    className={styles.header_out}
                                     onClick={() => setIsOpenLog(false)}
                                     src='pepicons-pop_times.svg'
                                     alt=''
                                 />
-                                <div className={styles.input_logo}>
+                                <div className={styles.header_logo}>
                                     <img src='800px-Upsilon_uc_lc 1.svg' alt='logo' />
                                     <h1>Upsilon</h1>
                                 </div>
@@ -67,6 +67,7 @@ export function Registration() {
                                     <label className={styles.input_label}>
                                         Email:
                                         <input
+                                            className={styles.header_input}
                                             {...register('email', {
                                                 minLength: 6,
                                                 required: true,
@@ -83,6 +84,7 @@ export function Registration() {
                                     <label className={styles.input_label}>
                                         Password:
                                         <input
+                                            className={styles.header_input}
                                             {...register('password', { minLength: 6, required: true })}
                                             placeholder='Password...'
                                         />
@@ -93,7 +95,10 @@ export function Registration() {
                                             <span>Password can't be less than 6 letters</span>
                                         )}
                                     </label>
-                                    <button type='submit'> Push</button>
+                                    <button type='submit' className={styles.header_btn}>
+                                        {' '}
+                                        Push
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -104,12 +109,12 @@ export function Registration() {
                         <div className={styles.dropdown_content}>
                             <div className={styles.header}>
                                 <img
-                                    className={styles.input_out}
+                                    className={styles.header_out}
                                     onClick={() => setIsOpenReg(false)}
                                     src='pepicons-pop_times.svg'
                                     alt=''
                                 />
-                                <div className={styles.input_logo}>
+                                <div className={styles.header_logo}>
                                     <img src='800px-Upsilon_uc_lc 1.svg' alt='logo' />
                                     <h1>Upsilon</h1>
                                 </div>
@@ -117,6 +122,7 @@ export function Registration() {
                                     <label className={styles.input_label}>
                                         Email:
                                         <input
+                                            className={styles.header_input}
                                             {...register('email', {
                                                 minLength: 6,
                                                 required: true,
@@ -135,6 +141,7 @@ export function Registration() {
                                     <label className={styles.input_label}>
                                         Password:
                                         <input
+                                            className={styles.header_input}
                                             {...register('password', { minLength: 6, required: true })}
                                             placeholder='Password...'
                                             onChange={e => setPassword(e.target.value)}
@@ -144,6 +151,7 @@ export function Registration() {
                                     <label className={styles.input_label}>
                                         Password retry:
                                         <input
+                                            className={styles.header_input}
                                             {...register('passwordRetry', { minLength: 6, required: true })}
                                             placeholder='Password...'
                                             onChange={e => setPasswordRetry(e.target.value)}
@@ -151,7 +159,7 @@ export function Registration() {
                                         />
                                     </label>
 
-                                    <button type='submit' onClick={() => handleForm()}>
+                                    <button type='submit' className={styles.header_btn} onClick={() => handleForm()}>
                                         {' '}
                                         Push
                                     </button>

@@ -45,14 +45,39 @@
     flex-direction: column;
 }
 
-.input_logo {
+.header_logo {
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-.input_out {
+.header_out {
     width: 40px;
     float: right;
     cursor: pointer;
+}
+
+.header_input {
+    border: #383838 solid 2px;
+    background: none;
+    outline: none;
+    color: white;
+    transition: 0.5s;
+}
+
+.header_btn {
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-image: linear-gradient(to right, #383838 10%, #bdb9b9d2 51%);
+    background-size: 200% auto;
+    transition: 0.5s;
+}
+
+.header_btn:hover {
+    background-position: 10%;
 }
