@@ -13,7 +13,7 @@
     background-image: url(/animation/ph_film-reel.svg);
     background-size: cover;
     background-position: center;
-    animation: moveProjector 30s infinite;
+    animation: moveProjector 300s infinite;
 }
 
 @keyframes moveProjector {
@@ -34,7 +34,7 @@
     background-image: url(/animation/mdi_film-check.svg);
     background-size: cover;
     background-position: center;
-    animation: moveCheck 25s infinite;
+    animation: moveCheck 150s infinite;
 }
 
 @keyframes moveCheck {
@@ -46,5 +46,27 @@
     }
     100% {
         transform: translate(700%, 700%) rotate(360deg);
+    }
+}
+
+.animation_open {
+    width: 40px;
+    height: 40px;
+    background-image: url(/animation/mdi_film-open-remove-outline.svg);
+    background-size: cover;
+    background-position: center;
+    animation: moveopen 100s infinite;
+    float: right;
+}
+
+@keyframes moveopen {
+    0% {
+        transform: translate(0%, 0%) rotate(0deg);
+    }
+    60% {
+        transform: translate(-1500%, 300%) rotate(180deg);
+    }
+    100% {
+        transform: translate(0%, 0%) rotate(360deg);
     }
 }
