@@ -55,6 +55,17 @@
     display: block;
 }
 
+.navigation:hover {
+    display: flex;
+    gap: 110px;
+    margin-inline: auto;
+    list-style: none;
+    padding: 0.2rem 1rem 0.2rem 4.8rem;
+    background-color: #787878;
+    border-radius: 10px;
+    align-items: center;
+}
+
 .navigation_flex {
     display: flex;
 }

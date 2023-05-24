@@ -1,0 +1,50 @@
+.animation_background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.animation_projector {
+    width: 40px;
+    height: 40px;
+    background-image: url(/animation/ph_film-reel.svg);
+    background-size: cover;
+    background-position: center;
+    animation: moveProjector 30s infinite;
+}
+
+@keyframes moveProjector {
+    0% {
+        transform: translate(50%, 0) rotate(0deg);
+    }
+    60% {
+        transform: translate(4000%, 2300%) rotate(180deg);
+    }
+    100% {
+        transform: translate(50%, 0) rotate(360deg);
+    }
+}
+
+.animation_check {
+    width: 40px;
+    height: 40px;
+    background-image: url(/animation/mdi_film-check.svg);
+    background-size: cover;
+    background-position: center;
+    animation: moveCheck 25s infinite;
+}
+
+@keyframes moveCheck {
+    0% {
+        transform: translate(700%, 700%) rotate(0deg);
+    }
+    60% {
+        transform: translate(4000%, 2300%) rotate(180deg);
+    }
+    100% {
+        transform: translate(700%, 700%) rotate(360deg);
+    }
+}
