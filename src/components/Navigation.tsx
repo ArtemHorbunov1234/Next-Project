@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from './navigator.module.css';
 import clsx from 'clsx';
-import { text } from 'stream/consumers';
+import Image from 'next/image';
 
 export function Navigation() {
     const [isOpenFilm, setIsOpenFilm] = useState(false);
@@ -59,7 +59,7 @@ export function Navigation() {
                     <div ref={dropdownRefFilm}>
                         <div className={styles.navigation_flex}>
                             <a className={styles.navigation_text}>Фільми</a>
-                            <img
+                            <Image
                                 onClick={toggleDropdownFilm}
                                 className={isOpenFilm ? styles.navigation_img : styles.navigation_img__reverse}
                                 src='uit_angle-up.svg'
@@ -88,7 +88,7 @@ export function Navigation() {
                         <div className={styles.navigation_flex}>
                             <a href='#' className={styles.navigation_text}>
                                 Серіали
-                                <img
+                                <Image
                                     onClick={toggleDropdownCurtain}
                                     className={isOpenCurtain ? styles.navigation_img : styles.navigation_img__reverse}
                                     src='uit_angle-up.svg'
@@ -119,7 +119,7 @@ export function Navigation() {
                         <div className={styles.navigation_flex}>
                             <a href='#' className={styles.navigation_text}>
                                 Мультфільми
-                                <img
+                                <Image
                                     onClick={toggleDropdownCartoon}
                                     className={isOpenCartoon ? styles.navigation_img : styles.navigation_img__reverse}
                                     src='uit_angle-up.svg'
@@ -149,7 +149,7 @@ export function Navigation() {
                 </li>
                 <li className={styles.search_box}>
                     <a className={styles.search_btn}>
-                        <img className={styles.search_svg} src='primary.svg' alt='' />
+                        <Image className={styles.search_svg} src='primary.svg' alt='' />
                     </a>
                     <input type='text' placeholder='Пошук...' className={styles.search_txt} />
                 </li>

@@ -125,3 +125,16 @@ input[type='checkbox']:checked ~ .check:after {
     color: #161616;
     transition: 1s;
 }
+
+.main--card__btn {
+    position: relative;
+    z-index: 1;
+    margin-inline: auto;
+    background-color: #383838;
+    color: #fff;
+    width: 250px;
+}
+
+.main--card__btn:hover {
+    background-color: #636363f1;
+}

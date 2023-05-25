@@ -1,6 +1,7 @@
 import styles from './registration.module.css';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { useState, useEffect, useRef } from 'react';
+import { useForm, type SubmitHandler } from 'react-hook-form';
+import { useState } from 'react';
+import Image from 'next/image';
 
 type Inputs = {
     email: string;
@@ -53,14 +54,14 @@ export function Registration() {
                     <div className={styles.dropdown_bg}>
                         <div className={styles.dropdown_content}>
                             <div className={styles.header}>
-                                <img
+                                <Image
                                     className={styles.header_out}
                                     onClick={() => setIsOpenLog(false)}
                                     src='pepicons-pop_times.svg'
                                     alt=''
                                 />
                                 <div className={styles.header_logo}>
-                                    <img src='800px-Upsilon_uc_lc 1.svg' alt='logo' />
+                                    <Image src='800px-Upsilon_uc_lc 1.svg' alt='logo' />
                                     <h1>Upsilon</h1>
                                 </div>
                                 <div className={styles.input_registration}>
@@ -92,7 +93,7 @@ export function Registration() {
                                             <span>Fill in the password field</span>
                                         )}
                                         {errors.password?.type === 'minLength' && (
-                                            <span>Password can't be less than 6 letters</span>
+                                            <span>Password can&apos;t be less than 6 letters</span>
                                         )}
                                     </label>
                                     <button type='submit' className={styles.header_btn}>
@@ -108,14 +109,14 @@ export function Registration() {
                     <div className={styles.dropdown_bg}>
                         <div className={styles.dropdown_content}>
                             <div className={styles.header}>
-                                <img
+                                <Image
                                     className={styles.header_out}
                                     onClick={() => setIsOpenReg(false)}
                                     src='pepicons-pop_times.svg'
                                     alt=''
                                 />
                                 <div className={styles.header_logo}>
-                                    <img src='800px-Upsilon_uc_lc 1.svg' alt='logo' />
+                                    <Image src='800px-Upsilon_uc_lc 1.svg' alt='logo' />
                                     <h1>Upsilon</h1>
                                 </div>
                                 <div className={styles.input_registration}>

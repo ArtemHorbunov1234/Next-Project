@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from './card.module.css';
 
 type Film = {
@@ -17,7 +18,7 @@ export function Card({ film }: CardProps) {
     return (
         <div className={styles.card}>
             <h3>{film.name}</h3>
-            <img src={film.img} />
+            <Image src={film.img} alt='' />
             <p>Жанр: {film.genre}</p>
             <p>Дата виходу: {film.releaseDate}</p>
             <p>Країна: {film.country}</p>

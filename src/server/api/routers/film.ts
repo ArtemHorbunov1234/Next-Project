@@ -1,9 +1,9 @@
 import { z } from 'zod';
 
-import { createTRPCRouter, publicProcedure, protectedProcedure } from '~/server/api/trpc';
+import { createTRPCRouter, publicProcedure } from '~/server/api/trpc';
 
 export const filmRouter = createTRPCRouter({
-    getAll: publicProcedure.query(async ({ ctx, input }) => {
+    getAll: publicProcedure.query(async ({ ctx }) => {
         return ctx.prisma.film.findMany();
     }),
 

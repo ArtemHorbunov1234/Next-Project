@@ -12,6 +12,8 @@
     border-radius: 15px;
     background-color: rgba(0, 0, 0, 0.59375);
     gap: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 .dropdown_bg {
@@ -38,6 +40,8 @@
 .registration {
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
 }
 
 .input_label {
