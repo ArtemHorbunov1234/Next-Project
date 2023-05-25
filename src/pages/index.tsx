@@ -49,9 +49,9 @@ function Home() {
                     {films.map(film => (
                         <div key={film.id}>
                             <Card film={film} />
-                            <button className='main--card__btn' onClick={() => handleDeleteFilm(film.id)}>
+                            {/* <button className='main--card__btn' onClick={() => handleDeleteFilm(film.id)}>
                                 Удалить
-                            </button>
+                            </button> */}
                         </div>
                     ))}
                 </div>
