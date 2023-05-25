@@ -64,6 +64,8 @@ export function Navigation() {
                                 className={isOpenFilm ? styles.navigation_img : styles.navigation_img__reverse}
                                 src='uit_angle-up.svg'
                                 alt='list'
+                                width={24}
+                                height={30}
                             />
                         </div>
                         <div
@@ -93,6 +95,8 @@ export function Navigation() {
                                     className={isOpenCurtain ? styles.navigation_img : styles.navigation_img__reverse}
                                     src='uit_angle-up.svg'
                                     alt='list'
+                                    width={24}
+                                    height={30}
                                 />
                             </a>
                         </div>
@@ -124,6 +128,8 @@ export function Navigation() {
                                     className={isOpenCartoon ? styles.navigation_img : styles.navigation_img__reverse}
                                     src='uit_angle-up.svg'
                                     alt='list'
+                                    width={24}
+                                    height={30}
                                 />
                             </a>
                         </div>
@@ -149,7 +155,7 @@ export function Navigation() {
                 </li>
                 <li className={styles.search_box}>
                     <a className={styles.search_btn}>
-                        <Image className={styles.search_svg} src='primary.svg' alt='' />
+                        <Image className={styles.search_svg} src='primary.svg' alt='' width={18} height={24} />
                     </a>
                     <input type='text' placeholder='Пошук...' className={styles.search_txt} />
                 </li>

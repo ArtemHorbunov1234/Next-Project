@@ -59,9 +59,11 @@ export function Registration() {
                                     onClick={() => setIsOpenLog(false)}
                                     src='pepicons-pop_times.svg'
                                     alt=''
+                                    width={40}
+                                    height={40}
                                 />
                                 <div className={styles.header_logo}>
-                                    <Image src='800px-Upsilon_uc_lc 1.svg' alt='logo' />
+                                    <Image src='800px-Upsilon_uc_lc-1.svg' alt='logo' width={50} height={50} />
                                     <h1>Upsilon</h1>
                                 </div>
                                 <div className={styles.input_registration}>
@@ -114,9 +116,11 @@ export function Registration() {
                                     onClick={() => setIsOpenReg(false)}
                                     src='pepicons-pop_times.svg'
                                     alt=''
+                                    width={40}
+                                    height={40}
                                 />
                                 <div className={styles.header_logo}>
-                                    <Image src='800px-Upsilon_uc_lc 1.svg' alt='logo' />
+                                    <Image src='800px-Upsilon_uc_lc-1.svg' alt='logo' width={50} height={50} />
                                     <h1>Upsilon</h1>
                                 </div>
                                 <div className={styles.input_registration}>

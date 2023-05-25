@@ -29,14 +29,14 @@ function Home() {
             </Head>
             <div className='container'>
                 <div className='container--svg'>
-                    <Image src='mdi_sun-moon-stars.svg' alt='sun-moon' />
+                    <Image width={28} height={28} src='mdi_sun-moon-stars.svg' alt='sun-moon' />
                     <label>
                         <input type='checkbox' onClick={() => setLightTheme(!lightTheme)} />
                         <span className='check'></span>
                     </label>
                 </div>
                 <div className='container--logo'>
-                    <Image src='800px-Upsilon_uc_lc 1.svg' alt='upsilon' />
+                    <Image width={50} height={50} src='800px-Upsilon_uc_lc-1.svg' alt='upsilon' />
                     <h1>UPSILON</h1>
                 </div>
                 <Registration />
