@@ -18,7 +18,8 @@ export function Card({ film }: CardProps) {
     return (
         <div className={styles.card}>
             <h3>{film.name}</h3>
-            <Image src={film.img} alt='' />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={film.img} alt='' />
             <p>Жанр: {film.genre}</p>
             <p>Дата виходу: {film.releaseDate}</p>
             <p>Країна: {film.country}</p>
