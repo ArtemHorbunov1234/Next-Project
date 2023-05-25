@@ -5,4 +5,18 @@
     flex-direction: column;
     position: relative;
     z-index: 1;
+    justify-content: center;
+    border: solid 2px transparent;
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+.card_img {
+    width: 230px;
+    height: 330px;
+}
+
+.card:hover {
+    border: solid 2px;
+    border-radius: 6px;
 }
