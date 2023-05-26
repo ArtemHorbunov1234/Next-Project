@@ -7,10 +7,10 @@
     display: flex;
     justify-content: center;
     gap: 20px;
+    align-items: center;
 }
 
 .header_out {
-    width: 40px;
     float: right;
     cursor: pointer;
 }
