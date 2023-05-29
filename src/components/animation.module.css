@@ -7,16 +7,16 @@
     z-index: 0;
 }
 
-.animation_projector {
+.animation_reel {
     width: 40px;
     height: 40px;
     background-image: url(/animation/ph_film-reel.svg);
     background-size: cover;
     background-position: center;
-    animation: moveProjector 200s infinite;
+    animation: moveReel 300s infinite;
 }
 
-@keyframes moveProjector {
+@keyframes moveReel {
     0% {
         transform: translate(50%, 0) rotate(0deg);
     }
@@ -70,5 +70,70 @@
     }
     100% {
         transform: translate(0%, 0%) rotate(360deg);
+    }
+}
+
+.animation_settings {
+    width: 40px;
+    height: 40px;
+    background-image: url(/animation/mdi_film-open-settings.svg);
+    background-size: cover;
+    background-position: center;
+    animation: moveSettings 100s infinite;
+    float: right;
+}
+
+@keyframes moveSettings {
+    0% {
+        transform: translate(100%, 1200%) rotate(0deg);
+    }
+    60% {
+        transform: translate(-800%, 2000%) rotate(180deg);
+    }
+    100% {
+        transform: translate(100%, 1200%) rotate(360deg);
+    }
+}
+
+.animation_projector {
+    width: 40px;
+    height: 40px;
+    background-image: url(/animation/emojione_film-projector.svg);
+    background-size: cover;
+    background-position: center;
+    animation: moveProjector 200s infinite;
+}
+
+@keyframes moveProjector {
+    0% {
+        transform: translate(0%, 2000%) rotate(0deg);
+    }
+    60% {
+        transform: translate(700%, 200%) rotate(180deg);
+    }
+    100% {
+        transform: translate(0%, 2000%) rotate(360deg);
+    }
+}
+
+.animation_regular {
+    width: 40px;
+    height: 40px;
+    background-image: url(/animation/fluent_filmstrip-play-32-regular.svg);
+    background-size: cover;
+    background-position: center;
+    animation: moveRegular 200s infinite;
+    float: right;
+}
+
+@keyframes moveRegular {
+    0% {
+        transform: translate(0%, 1900%) rotate(0deg);
+    }
+    60% {
+        transform: translate(-800%, 2000%) rotate(180deg);
+    }
+    100% {
+        transform: translate(0%, 1900%) rotate(360deg);
     }
 }
